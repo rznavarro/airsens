@@ -1,8 +1,0 @@
-<svg viewBox="0 0 100 100" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg">
-  <!-- Top: Stylized Angled Crest & Horizontal Brow -->
-  <path d="M46 10 L72 29.5 V38 H28 V29.5 H60.5 L46 18.5 Z" />
-  <!-- Middle: Eyes (Two Horizontal Blocks) -->
-  <path d="M28 47.5 H45.5 V56 H28 Z M54.5 47.5 H72 V56 H54.5 Z" />
-  <!-- Bottom: Wide Semicircular Smile -->
-  <path d="M28 65.5 A22 22 0 0 0 72 65.5 H63.5 A13.5 13.5 0 0 1 36.5 65.5 Z" />
-</svg>

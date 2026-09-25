@@ -1,5 +1,5 @@
 import React from 'react';
-import { SERVICES, EQUIPMENT } from '../data/airsensData';
+import { SERVICES } from '../data/airsensData';
 import { ArrowUpRight, Cpu, Wind, Zap, Flame, Droplets, Snowflake, Factory, ShieldAlert } from 'lucide-react';
 
 const serviceIcons: Record<string, React.ReactNode> = {
@@ -44,7 +44,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
         </div>
 
         {/* 8 Services Grid: 4x2 desktop, 2 cols tablet, 1 col mobile */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {SERVICES.map((service, index) => {
             return (
               <div
@@ -104,31 +104,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
               </div>
             );
           })}
-        </div>
-
-        {/* Equipment Strip */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-[#14181D]/60 border border-[#2A2F36] flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex flex-col text-left">
-            <span className="text-xs uppercase tracking-widest text-[#2E7DFF] font-semibold">
-              Equipos de Alta Exigencia
-            </span>
-            <span className="text-base sm:text-lg font-heading font-bold text-white mt-1">
-              Suministro, montaje y mantenimiento de tecnologías líderes:
-            </span>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-            {EQUIPMENT.map((eq) => (
-              <a
-                key={eq.name}
-                href={eq.href}
-                className="px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-white/5 hover:bg-[#2E7DFF] hover:border-[#2E7DFF] border border-white/15 transition-all flex items-center gap-2 group"
-              >
-                <span>{eq.name}</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#A7AEB8] group-hover:text-white transition-colors" />
-              </a>
-            ))}
-          </div>
         </div>
       </div>
     </section>

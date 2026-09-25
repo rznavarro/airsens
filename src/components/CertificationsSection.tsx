@@ -158,20 +158,8 @@ export const CertificationsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Franja de Clientes con Logos Vectoriales Monocromáticos */}
+        {/* Franja de logos de clientes */}
         <div className="pt-6">
-          <div className="text-center mb-10">
-            <p className="text-xs font-mono uppercase tracking-widest text-[#2E7DFF] font-semibold mb-2">
-              SOCIOS COMERCIALES & CLIENTES ESTRATÉGICOS
-            </p>
-            <h3 className="text-2xl sm:text-3xl font-heading font-bold text-white tracking-wide">
-              Empresas y corporaciones que confían en Airsens
-            </h3>
-            <p className="text-xs sm:text-sm text-[#A7AEB8] mt-1">
-              Operación continua en faenadoras de alimentos, agroindustria y cadenas de televisión y broadcast.
-            </p>
-          </div>
-
           <ClientLogosGrid />
         </div>
       </div>
