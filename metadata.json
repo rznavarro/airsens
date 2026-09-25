@@ -1,0 +1,6 @@
+{
+  "name": "Airsens",
+  "description": "Ingeniería HVAC&R, climatización, refrigeración, electricidad y salas técnicas para minería, industria y comercio en Chile.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
