@@ -68,9 +68,9 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                     <a
                       href={service.href}
                       onClick={(e) => {
-                        if (service.id === 'red-de-incendio' && onSelectService) {
+                        if (onSelectService) {
                           e.preventDefault();
-                          onSelectService('red-de-incendio');
+                          onSelectService(service.id);
                         }
                       }}
                       className="inline-flex items-center gap-1.5 text-xs font-semibold text-white group-hover:text-[#2E7DFF] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#2E7DFF]"

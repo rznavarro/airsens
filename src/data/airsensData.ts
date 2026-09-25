@@ -109,7 +109,7 @@ export const SERVICES: ServiceItem[] = [
     image: '/assets/images/mineria_industria_1790194348261.jpg',
     alt: 'airsens-mineria-industria.webp',
     description: 'HVAC para entornos de alta exigencia, con respaldo ISO.',
-    href: '/hvac-salas-tecnicas',
+    href: '/mineria-e-industria',
   },
   {
     id: 'red-de-incendio',
@@ -117,7 +117,7 @@ export const SERVICES: ServiceItem[] = [
     image: '/assets/images/red_de_incendio_1790194361883.jpg',
     alt: 'airsens-red-de-incendio.webp',
     description: 'Detección, extinción y redes húmedas bajo normas NFPA para proteger personas y activos críticos.',
-    href: '#/red-de-incendio',
+    href: '/red-de-incendio',
   },
 ];
 

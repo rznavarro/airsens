@@ -1,5 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BUSINESS_INFO, IMAGES } from '../data/airsensData';
+import { getServiceSeoById } from '../data/serviceSeo';
+import { useSeo } from '../lib/seo';
 import {
   ShieldAlert,
   Flame,
@@ -26,10 +28,8 @@ interface RedDeIncendioPageProps {
 }
 
 export const RedDeIncendioPage: React.FC<RedDeIncendioPageProps> = ({ onNavigateHome }) => {
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    document.title = 'Red de Incendio | Airsens Ingeniería Contra Incendios';
-  }, []);
+  const seo = getServiceSeoById('red-de-incendio')!;
+  useSeo({ title: seo.title, description: seo.description, path: seo.path });
 
   const whatsappMessage = encodeURIComponent(
     'Hola Airsens, deseo solicitar una cotización técnica para un proyecto de Red de Incendio (NFPA / detección / extinción / sala de bombas).'

@@ -109,8 +109,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onSelectService }) => {
                       key={s.id}
                       onClick={() => {
                         setServicesDropdownOpen(false);
-                        if (s.id === 'red-de-incendio' && onSelectService) {
-                          onSelectService('red-de-incendio');
+                        if (onSelectService) {
+                          onSelectService(s.id);
                         } else {
                           scrollTo('servicios');
                         }
@@ -224,11 +224,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onSelectService }) => {
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  if (onSelectService) {
-                    onSelectService('red-de-incendio');
-                  } else {
-                    window.location.hash = '#/red-de-incendio';
-                  }
+                  onSelectService?.('red-de-incendio');
                 }}
                 className="text-left py-2.5 px-3.5 rounded-xl text-sm font-medium text-white hover:bg-white/5 active:bg-white/10 transition-colors flex items-center justify-between"
               >

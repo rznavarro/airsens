@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { AboutSection } from './components/AboutSection';
@@ -16,49 +16,42 @@ import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { FloatingActions } from './components/FloatingActions';
 import { RedDeIncendioPage } from './components/RedDeIncendioPage';
+import { ServicePage } from './components/ServicePage';
+import { getServiceSeoById, getServiceSeoByPath } from './data/serviceSeo';
+import { navigate, usePathname } from './lib/router';
+import { useSeo } from './lib/seo';
+
+const HOME_SEO = {
+  title: 'Airsens | Ingeniería HVAC, Climatización y Refrigeración Industrial en Chile',
+  description:
+    'Climatización, refrigeración, electricidad y salas técnicas para minería, industria y comercio. 16 años, 2.980 proyectos y certificación ISO 9001, 14001 y 45001. Cotiza por WhatsApp.',
+  path: '/',
+};
+
+const HomeSeo: React.FC = () => {
+  useSeo(HOME_SEO);
+  return null;
+};
 
 export default function App() {
-  const [currentRoute, setCurrentRoute] = useState<'home' | 'red-de-incendio'>('home');
+  const pathname = usePathname();
+  const servicePage = getServiceSeoByPath(pathname);
 
-  useEffect(() => {
-    const handleHash = () => {
-      const hash = window.location.hash.toLowerCase();
-      if (hash.includes('red-de-incendio')) {
-        setCurrentRoute('red-de-incendio');
-      } else {
-        setCurrentRoute('home');
-      }
-    };
-
-    handleHash();
-    window.addEventListener('hashchange', handleHash);
-    return () => window.removeEventListener('hashchange', handleHash);
-  }, []);
-
-  const navigateTo = (route: 'home' | 'red-de-incendio') => {
-    if (route === 'red-de-incendio') {
-      window.location.hash = '#/red-de-incendio';
-      setCurrentRoute('red-de-incendio');
-    } else {
-      window.location.hash = '';
-      setCurrentRoute('home');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
+  const goHome = () => navigate('/');
 
   const handleSelectService = (serviceId: string) => {
-    if (serviceId === 'red-de-incendio') {
-      navigateTo('red-de-incendio');
-    } else {
-      const el = document.getElementById('servicios');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
+    const target = getServiceSeoById(serviceId);
+    if (target) navigate(target.path);
   };
 
-  if (currentRoute === 'red-de-incendio') {
+  if (servicePage) {
     return (
       <div className="min-h-screen bg-[#0B0D10] text-[#F5F6F7] selection:bg-[#2E7DFF] selection:text-white flex flex-col font-sans">
-        <RedDeIncendioPage onNavigateHome={() => navigateTo('home')} />
+        {servicePage.id === 'red-de-incendio' ? (
+          <RedDeIncendioPage onNavigateHome={goHome} />
+        ) : (
+          <ServicePage key={servicePage.id} serviceId={servicePage.id} onNavigateHome={goHome} />
+        )}
         <FloatingActions />
       </div>
     );
@@ -66,6 +59,8 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#0B0D10] text-[#F5F6F7] selection:bg-[#2E7DFF] selection:text-white flex flex-col font-sans">
+      <HomeSeo />
+
       {/* Floating Pill Top Navigation */}
       <Navbar onSelectService={handleSelectService} />
 

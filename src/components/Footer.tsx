@@ -102,9 +102,9 @@ export const Footer: React.FC<FooterProps> = ({ onSelectService }) => {
                   <a
                     href={s.href}
                     onClick={(e) => {
-                      if (s.id === 'red-de-incendio' && onSelectService) {
+                      if (onSelectService) {
                         e.preventDefault();
-                        onSelectService('red-de-incendio');
+                        onSelectService(s.id);
                       }
                     }}
                     className="hover:text-white transition-colors flex items-center justify-between"
