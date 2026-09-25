@@ -6,6 +6,7 @@ export interface ClientBrand {
   tagline: string;
   industry: string;
   svg: React.ReactNode;
+  logoSrc?: string;
 }
 
 export const CLIENT_BRANDS: ClientBrand[] = [
@@ -13,6 +14,7 @@ export const CLIENT_BRANDS: ClientBrand[] = [
     name: 'Warner Bros',
     tagline: 'Corporativo & Estudios',
     industry: 'Broadcast / Entretenimiento',
+    logoSrc: '/logos/clientes/warner-bros.svg',
     svg: (
       <svg className="w-8 h-8" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         {/* Outer Gold Shield with Stepped Shoulders */}
@@ -43,6 +45,7 @@ export const CLIENT_BRANDS: ClientBrand[] = [
     name: 'Chilevisión',
     tagline: 'Planta Transmisión Broadcast',
     industry: 'Televisión & Medios',
+    logoSrc: '/logos/clientes/chilevision.svg',
     svg: (
       <svg className="w-8 h-8" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         {/* Top: Stylized Angled Crest & Horizontal Brow */}
@@ -58,6 +61,7 @@ export const CLIENT_BRANDS: ClientBrand[] = [
     name: 'Agrosuper',
     tagline: 'Plantas Agroindustriales',
     industry: 'Alimentos & Faenadoras',
+    logoSrc: '/logos/clientes/agrosuper.svg',
     svg: (
       <svg className="w-8 h-8" viewBox="0 0 100 100" fill="currentColor">
         <path d="M50 12c-18 0-32 14-32 32 0 24 32 44 32 44s32-20 32-44c0-18-14-32-32-32zm0 46c-7.7 0-14-6.3-14-14s6.3-14 14-14 14 6.3 14 14-6.3 14-14 14z" />
@@ -69,6 +73,7 @@ export const CLIENT_BRANDS: ClientBrand[] = [
     name: 'Sopraval',
     tagline: 'Cámaras y Frigoríficos',
     industry: 'Procesamiento Avícola',
+    logoSrc: '/logos/clientes/sopraval.svg',
     svg: (
       <svg className="w-8 h-8" viewBox="0 0 100 100" fill="currentColor">
         <path d="M20 50a30 30 0 0 1 60 0c0 16-14 32-30 36-16-4-30-20-30-36z" fill="none" stroke="currentColor" strokeWidth="6" />
@@ -83,9 +88,18 @@ export const ClientLogosGrid: React.FC = () => {
     title: brand.name,
     node: (
       <div className="group flex items-center gap-4 py-4 px-6 rounded-2xl bg-[#14181D]/90 border border-[#2A2F36] hover:border-[#2E7DFF] transition-all duration-300 hover:shadow-[0_8px_28px_rgba(46,125,255,0.2)] text-left cursor-default min-w-[280px] sm:min-w-[320px] backdrop-blur-md">
-        {/* Logo Monocromático de alta fidelidad */}
-        <div className="w-12 h-12 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-[#A7AEB8] group-hover:text-[#2E7DFF] group-hover:bg-[#2E7DFF]/10 transition-colors duration-300 shrink-0">
-          {brand.svg}
+        {/* Logo de alta fidelidad */}
+        <div className="w-12 h-12 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center p-2 text-[#A7AEB8] group-hover:border-[#2E7DFF]/50 group-hover:bg-[#2E7DFF]/10 transition-colors duration-300 shrink-0">
+          {brand.logoSrc ? (
+            <img
+              src={brand.logoSrc}
+              alt={brand.name}
+              className="w-8 h-8 object-contain"
+              loading="lazy"
+            />
+          ) : (
+            brand.svg
+          )}
         </div>
 
         {/* Text Details */}

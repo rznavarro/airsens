@@ -138,7 +138,7 @@ export const ProjectsCarousel: React.FC = () => {
                   loading="lazy"
                   referrerPolicy="no-referrer"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = '/src/assets/images/climatizacion_rooftop_1790194287573.jpg';
+                    (e.target as HTMLImageElement).src = '/assets/images/climatizacion_rooftop_1790194287573.jpg';
                   }}
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
