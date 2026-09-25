@@ -8,7 +8,6 @@ import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { AboutSection } from './components/AboutSection';
 import { ServicesSection } from './components/ServicesSection';
-import { HvacEstimator } from './components/HvacEstimator';
 import { ProjectsCarousel } from './components/ProjectsCarousel';
 import { CertificationsSection } from './components/CertificationsSection';
 import { ReviewsSection } from './components/ReviewsSection';
@@ -80,9 +79,6 @@ export default function App() {
 
         {/* 4.3 Servicios (8 Áreas Críticas + Equipos) */}
         <ServicesSection onSelectService={handleSelectService} />
-
-        {/* Herramienta Técnica: Estimador de Capacidad HVAC */}
-        <HvacEstimator />
 
         {/* 4.4 Proyectos Destacados (13 Obras Reales con Filtros y Fichas) */}
         <ProjectsCarousel />

@@ -8,8 +8,7 @@ interface AirsensLogoProps {
 
 /**
  * Airsens Brand Wordmark
- * Clean, bold, modern typography ("airsens" in lowercase)
- * Designed for high legibility, balanced geometry and a premium engineering aesthetic.
+ * Logo oficial en PNG (public/logos/airsens.png).
  */
 export const AirsensLogo: React.FC<AirsensLogoProps> = ({
   className = '',
@@ -18,19 +17,19 @@ export const AirsensLogo: React.FC<AirsensLogoProps> = ({
 }) => {
   const sizeConfig = {
     sm: {
-      text: 'text-2xl tracking-[-0.045em]',
+      logo: 'h-6',
       subGap: 'gap-2.5',
       subText: 'text-[10px]',
       subLabel: 'text-[8.5px]',
     },
     md: {
-      text: 'text-3xl sm:text-4xl tracking-[-0.045em]',
+      logo: 'h-7 sm:h-9',
       subGap: 'gap-3',
       subText: 'text-[11px]',
       subLabel: 'text-[9.5px]',
     },
     lg: {
-      text: 'text-4xl sm:text-5xl tracking-[-0.05em]',
+      logo: 'h-9 sm:h-12',
       subGap: 'gap-4',
       subText: 'text-xs',
       subLabel: 'text-[10px]',
@@ -39,12 +38,12 @@ export const AirsensLogo: React.FC<AirsensLogoProps> = ({
 
   return (
     <div className={`inline-flex items-center ${sizeConfig.subGap} select-none group ${className}`}>
-      {/* Wordmark: pure "airsens" typography */}
-      <span
-        className={`${sizeConfig.text} font-sans font-black text-white lowercase leading-none transition-all duration-200 group-hover:text-blue-50 drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]`}
-      >
-        airsens
-      </span>
+      {/* Wordmark: logo oficial */}
+      <img
+        src="/logos/airsens.png"
+        alt="Airsens"
+        className={`${sizeConfig.logo} w-auto drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]`}
+      />
 
       {/* Subtitle tag (HVAC&R Ingeniería) when enabled */}
       {showSubtitle && (

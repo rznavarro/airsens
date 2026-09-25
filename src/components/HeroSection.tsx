@@ -48,30 +48,6 @@ export const HeroSection: React.FC = () => {
 
       {/* Main Content Area */}
       <div className="relative z-10 max-w-6xl mx-auto w-full my-auto py-6 sm:py-12 flex flex-col items-start">
-        {/* Unboxed Metadata Label & Google Reviews Pill */}
-        <div className="flex flex-wrap items-center gap-2.5 sm:gap-4 mb-4 sm:mb-6 animate-in-view">
-          <div className="flex items-center gap-2 text-[11px] sm:text-sm font-semibold tracking-wider sm:tracking-widest text-[#2E7DFF] uppercase">
-            <span className="w-2 h-2 rounded-full bg-[#2E7DFF] shadow-[0_0_8px_#2E7DFF]" />
-            <span>INGENIERÍA HVAC&R</span>
-            <span className="text-white/30" aria-hidden="true">·</span>
-            <span className="text-[#A7AEB8]">16 AÑOS</span>
-          </div>
-
-          <a
-            href="#resenas"
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById('resenas')?.scrollIntoView({ behavior: 'smooth' });
-            }}
-            className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-medium bg-white/10 hover:bg-white/15 border border-white/20 text-white backdrop-blur-md transition-all hover:border-[#FBBC04]/60 group"
-          >
-            <span className="text-[#FBBC04] font-semibold">★ 4,6</span>
-            <span className="text-white/80">en Google</span>
-            <span className="text-white/30 hidden xs:inline">·</span>
-            <span className="text-[#A7AEB8] group-hover:text-white transition-colors hidden xs:inline">18 reseñas</span>
-          </a>
-        </div>
-
         {/* H1 Headline */}
         <h1
           className="text-white font-heading font-bold text-left mb-4 sm:mb-6 text-balance max-w-5xl tracking-tight text-[36px] sm:text-[clamp(52px,8.5vw,130px)] leading-[0.96] sm:leading-[0.94]"

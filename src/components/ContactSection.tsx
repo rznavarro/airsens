@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { IMAGES, BUSINESS_INFO, SERVICES } from '../data/airsensData';
-import { MapPin, Phone, Mail, MessageSquare, Clock, Send, CheckCircle2, Star, ExternalLink } from 'lucide-react';
+import { MapPin, Phone, Mail, MessageSquare, Clock, Send, CheckCircle2, ExternalLink } from 'lucide-react';
 
 export const ContactSection: React.FC = () => {
   const [nombre, setNombre] = useState('');
@@ -176,38 +176,6 @@ export const ContactSection: React.FC = () => {
                       <span className="text-[#2E7DFF] font-medium">Guardia técnica 24/7 faenas críticas</span>
                     </div>
                   </div>
-                </div>
-              </div>
-
-              {/* Featured Customer Review: Nicolas baeza jakob (Literal copy) */}
-              <div className="p-5 rounded-2xl bg-[#14181D]/90 border border-[#2A2F36] relative mb-6">
-                <span className="absolute top-3 right-4 text-4xl font-serif text-[#2E7DFF]/25 leading-none select-none">“</span>
-                <div className="flex items-center gap-3 mb-2.5">
-                  <div className="w-9 h-9 rounded-full bg-[#2E7DFF] text-white flex items-center justify-center font-bold text-xs">
-                    N
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold text-white">Nicolas baeza jakob</p>
-                    <div className="flex items-center gap-1.5">
-                      <div className="flex text-[#FBBC04]">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-3 h-3 fill-[#FBBC04]" />
-                        ))}
-                      </div>
-                      <span className="text-[11px] text-[#A7AEB8]">Hace 10 meses</span>
-                    </div>
-                  </div>
-                </div>
-                <p className="text-xs leading-relaxed text-[#F5F6F7]/90 whitespace-pre-line">
-                  {`Muy buen servicio pre y post venta.
-El trato para coordinar visita muy dinámico y los técnicos muy atentos y experimentados.
-Totalmente recomendables`}
-                </p>
-                <div className="mt-3 pt-2.5 border-t border-[#2A2F36] flex items-center justify-between text-[11px] text-[#A7AEB8]">
-                  <span>Reseña de Google verificada</span>
-                  <a href="#resenas" className="text-[#2E7DFF] hover:underline font-medium">
-                    Ver todas las opiniones (18) →
-                  </a>
                 </div>
               </div>
             </div>

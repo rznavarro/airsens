@@ -1,6 +1,6 @@
 import React from 'react';
-import { IMAGES, CLIENTS, BUSINESS_INFO } from '../data/airsensData';
-import { ShieldCheck, Star, Award, CheckCircle, ExternalLink } from 'lucide-react';
+import { IMAGES, CLIENTS } from '../data/airsensData';
+import { ShieldCheck, Award, CheckCircle } from 'lucide-react';
 import { ClientLogosGrid } from './ClientLogos';
 
 export const CertificationsSection: React.FC = () => {
@@ -117,44 +117,6 @@ export const CertificationsSection: React.FC = () => {
             <p className="text-xs text-[#A7AEB8] leading-relaxed">
               Estándares de prevención activa, análisis de riesgos en caliente y maniobras de izaje para faenas mineras e industriales de alta criticidad en Chile.
             </p>
-          </div>
-        </div>
-
-        {/* Google Reviews Block */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-[#14181D]/75 backdrop-blur-md border border-[#2A2F36] flex flex-col sm:flex-row items-center justify-between gap-6 mb-16">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-amber-400">
-              <Star className="w-6 h-6 fill-amber-400" />
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="text-2xl font-heading font-bold text-white">4,6 ★ en Google</span>
-                <span className="text-white/40">·</span>
-                <span className="text-sm text-[#A7AEB8] font-medium">18 reseñas</span>
-              </div>
-              <p className="text-xs text-[#A7AEB8] mt-0.5">
-                Calificación promedio verificada de clientes corporativos e industriales.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-3">
-            <a
-              href="#resenas"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold text-white bg-[#2E7DFF] hover:bg-[#2563EB] transition-colors"
-            >
-              <span>Ver opiniones de clientes (4,6 ★)</span>
-              <ExternalLink className="w-3.5 h-3.5" />
-            </a>
-            <a
-              href={BUSINESS_INFO.googleRating.mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-medium text-white/90 bg-white/5 hover:bg-white/10 border border-white/15 hover:border-white/30 transition-colors"
-            >
-              <span>Ficha oficial en Google Maps</span>
-              <ExternalLink className="w-3.5 h-3.5 text-[#2E7DFF]" />
-            </a>
           </div>
         </div>
 
