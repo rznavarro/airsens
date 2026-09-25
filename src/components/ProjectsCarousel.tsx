@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { PROJECTS } from '../data/airsensData';
 import { ProjectItem } from '../types';
-import { ChevronLeft, ChevronRight, MapPin, Building2, Wrench, ArrowUpRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, MapPin, Wrench, ArrowUpRight } from 'lucide-react';
 import { ProjectDetailModal } from './ProjectDetailModal';
 
 const CATEGORY_TABS = [
@@ -150,20 +150,6 @@ export const ProjectsCarousel: React.FC = () => {
 
               {/* Scrim Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#14181D] via-[#14181D]/40 to-transparent" />
-
-              {/* Top Badges */}
-              <div className="absolute top-4 left-4 flex items-center gap-2">
-                <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-[#2E7DFF] text-white shadow-md">
-                  OBRA {String(project.id).padStart(2, '0')}
-                </span>
-              </div>
-
-              {project.client && (
-                <div className="absolute top-4 right-4 flex items-center gap-1.5 text-[11px] font-semibold text-white bg-[#0B0D10]/85 px-3 py-1 rounded-full border border-white/20 backdrop-blur-md">
-                  <Building2 className="w-3 h-3 text-[#2E7DFF]" />
-                  <span>{project.client}</span>
-                </div>
-              )}
 
               {/* Hover Quick Action Indicator */}
               <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 text-[11px] font-semibold text-white bg-[#2E7DFF] px-2.5 py-1 rounded-full shadow-lg">

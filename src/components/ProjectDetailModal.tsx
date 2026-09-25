@@ -67,20 +67,6 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
           >
             <X className="w-5 h-5" />
           </button>
-
-          {/* Badges on image */}
-          <div className="absolute bottom-4 left-6 right-6 flex flex-wrap items-center gap-2">
-            {project.client && (
-              <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#2E7DFF] text-white tracking-wider uppercase shadow-md">
-                {project.client}
-              </span>
-            )}
-            {project.category && (
-              <span className="px-3 py-1 rounded-full text-xs font-medium bg-black/60 backdrop-blur-md text-[#F5F6F7] border border-white/20">
-                {project.category}
-              </span>
-            )}
-          </div>
         </div>
 
         {/* Content Body */}

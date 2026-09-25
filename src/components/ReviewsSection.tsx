@@ -320,53 +320,10 @@ export const ReviewsSection: React.FC = () => {
                             )}
                           </button>
                         )}
-
-                        {/* Positive Aspects & Services tags if available */}
-                        {review.positiveAspects && review.positiveAspects.length > 0 && (
-                          <div className="mt-3 pt-2.5 border-t border-[#2A2F36]/60 text-xs">
-                            <span className="text-[11px] font-semibold text-[#A7AEB8] block mb-1">
-                              Aspectos positivos:
-                            </span>
-                            <div className="flex flex-wrap gap-1.5">
-                              {review.positiveAspects.map((aspect, i) => (
-                                <span
-                                  key={i}
-                                  className="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-[11px] text-white/90"
-                                >
-                                  {aspect}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-
-                        {review.services && (
-                          <div className="mt-2 text-xs text-[#A7AEB8]">
-                            <span className="font-semibold text-white/80">Servicios: </span>
-                            <span className="text-white/70">{review.services}</span>
-                          </div>
-                        )}
-
-                        {/* Owner Response if available */}
-                        {review.ownerResponse && (
-                          <div className="mt-3 p-3 rounded-xl bg-[#0B0D10] border-l-2 border-[#2E7DFF] text-xs">
-                            <div className="flex items-center justify-between mb-1">
-                              <span className="font-semibold text-white text-[11px]">
-                                Respuesta del propietario
-                              </span>
-                              <span className="text-[10px] text-[#A7AEB8]">
-                                {review.ownerResponse.timeAgo}
-                              </span>
-                            </div>
-                            <p className="text-[11px] text-[#A7AEB8] leading-relaxed">
-                              {review.ownerResponse.text}
-                            </p>
-                          </div>
-                        )}
                       </div>
 
                       {/* Card Footer: Small Google Icon + "Reseña de Google" */}
-                      <div className="pt-4 mt-2 border-t border-[#2A2F36] flex items-center justify-between text-xs text-[#A7AEB8]">
+                      <div className="pt-4 mt-5 border-t border-[#2A2F36] flex items-center justify-between text-xs text-[#A7AEB8]">
                         <div className="flex items-center gap-2">
                           <GoogleIcon className="w-4 h-4" />
                           <span className="font-medium text-[12px]">Reseña de Google</span>

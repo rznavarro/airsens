@@ -4,7 +4,6 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { CustomCursor } from './components/CustomCursor';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { AboutSection } from './components/AboutSection';
@@ -60,7 +59,6 @@ export default function App() {
   if (currentRoute === 'red-de-incendio') {
     return (
       <div className="min-h-screen bg-[#0B0D10] text-[#F5F6F7] selection:bg-[#2E7DFF] selection:text-white flex flex-col font-sans">
-        <CustomCursor />
         <RedDeIncendioPage onNavigateHome={() => navigateTo('home')} />
         <FloatingActions />
       </div>
@@ -69,9 +67,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#0B0D10] text-[#F5F6F7] selection:bg-[#2E7DFF] selection:text-white flex flex-col font-sans">
-      {/* Desktop Custom Cursor */}
-      <CustomCursor />
-
       {/* Floating Pill Top Navigation */}
       <Navbar onSelectService={handleSelectService} />
 

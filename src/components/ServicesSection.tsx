@@ -1,17 +1,6 @@
 import React from 'react';
 import { SERVICES } from '../data/airsensData';
-import { ArrowUpRight, Cpu, Wind, Zap, Flame, Droplets, Snowflake, Factory, ShieldAlert } from 'lucide-react';
-
-const serviceIcons: Record<string, React.ReactNode> = {
-  'hvac-salas-tecnicas': <Cpu className="w-5 h-5 text-[#2E7DFF]" />,
-  'climatizacion': <Wind className="w-5 h-5 text-[#2E7DFF]" />,
-  'electricidad': <Zap className="w-5 h-5 text-[#2E7DFF]" />,
-  'sala-de-calderas': <Flame className="w-5 h-5 text-[#2E7DFF]" />,
-  'sala-de-bombas': <Droplets className="w-5 h-5 text-[#2E7DFF]" />,
-  'refrigeracion': <Snowflake className="w-5 h-5 text-[#2E7DFF]" />,
-  'mineria-e-industria': <Factory className="w-5 h-5 text-[#2E7DFF]" />,
-  'red-de-incendio': <ShieldAlert className="w-5 h-5 text-[#2E7DFF]" />,
-};
+import { ArrowUpRight } from 'lucide-react';
 
 interface ServicesSectionProps {
   onSelectService?: (serviceId: string) => void;
@@ -45,7 +34,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
 
         {/* 8 Services Grid: 4x2 desktop, 2 cols tablet, 1 col mobile */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {SERVICES.map((service, index) => {
+          {SERVICES.map((service) => {
             return (
               <div
                 key={service.id}
@@ -61,16 +50,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#14181D] via-transparent to-transparent opacity-80" />
-                  
-                  {/* Linear Icon in #2E7DFF (Zero multicolor rule) */}
-                  <div className="absolute top-3 left-3 w-9 h-9 rounded-xl bg-[#0B0D10]/80 backdrop-blur-md border border-[#2A2F36] flex items-center justify-center">
-                    {serviceIcons[service.id]}
-                  </div>
-
-                  {/* Clean index indicator */}
-                  <div className="absolute top-3 right-3 text-[11px] font-mono font-medium text-[#A7AEB8] px-2 py-0.5 rounded-full bg-[#0B0D10]/60 border border-white/10">
-                    0{index + 1}
-                  </div>
                 </div>
 
                 {/* Content */}
