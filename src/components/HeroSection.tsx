@@ -1,19 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { IMAGES, BUSINESS_INFO } from '../data/airsensData';
 import { MessageSquare, PhoneCall, Mail, ShieldCheck, ArrowRight } from 'lucide-react';
 
 export const HeroSection: React.FC = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = true;
-      videoRef.current.play().catch(() => {
-        // Autoplay may be restricted by browser low-power mode; poster remains visible
-      });
-    }
-  }, []);
-
   return (
     <section
       id="inicio"
@@ -21,26 +10,18 @@ export const HeroSection: React.FC = () => {
     >
       {/* Background Video / Image with Scrim Overlays */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster={IMAGES.hero}
+        <img
+          src={IMAGES.hero}
+          srcSet={`${IMAGES.hero.replace('.webp', '-640.webp')} 640w, ${IMAGES.hero} 1400w`}
+          sizes="100vw"
+          width={1376}
+          height={768}
+          alt="Ingeniería HVAC industrial Airsens"
           className="w-full h-full object-cover object-center"
-        >
-          <source src="/videos/hero-video.mp4" type="video/mp4" />
-          <source src="/videos/hero-video.mp4.mp4" type="video/mp4" />
-          <source src="/videos/hero.mp4" type="video/mp4" />
-          <img
-            src={IMAGES.hero}
-            alt="airsens-hero-ingenieria-hvac-industrial.webp"
-            className="w-full h-full object-cover object-center scale-105 transition-transform duration-1000 ease-out"
-            loading="eager"
-            referrerPolicy="no-referrer"
-          />
-        </video>
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+        />
         {/* Measured Scrim Gradient for Contrast WCAG AA */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B0D10]/60 via-[#0B0D10]/75 to-[#0B0D10]" />
         <div className="absolute inset-0 bg-radial from-transparent via-[#0B0D10]/50 to-[#0B0D10]/95" />

@@ -48,7 +48,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
               alt={project.alt}
               referrerPolicy="no-referrer"
               onError={(e) => {
-                (e.target as HTMLImageElement).src = '/assets/images/climatizacion_rooftop_1790194287573.jpg';
+                (e.target as HTMLImageElement).src = '/assets/images/climatizacion_rooftop_1790194287573.webp';
               }}
               className="w-full h-full object-cover object-center"
             />

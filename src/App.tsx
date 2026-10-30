@@ -3,23 +3,24 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
-import { AboutSection } from './components/AboutSection';
-import { ServicesSection } from './components/ServicesSection';
-import { ProjectsCarousel } from './components/ProjectsCarousel';
-import { CertificationsSection } from './components/CertificationsSection';
-import { ReviewsSection } from './components/ReviewsSection';
-import { FaqSection } from './components/FaqSection';
-import { ContactSection } from './components/ContactSection';
-import { Footer } from './components/Footer';
 import { FloatingActions } from './components/FloatingActions';
-import { RedDeIncendioPage } from './components/RedDeIncendioPage';
-import { ServicePage } from './components/ServicePage';
 import { getServiceSeoById, getServiceSeoByPath } from './data/serviceSeo';
 import { navigate, usePathname } from './lib/router';
 import { useSeo } from './lib/seo';
+
+const AboutSection = React.lazy(() => import('./components/AboutSection').then((m) => ({ default: m.AboutSection })));
+const ServicesSection = React.lazy(() => import('./components/ServicesSection').then((m) => ({ default: m.ServicesSection })));
+const ProjectsCarousel = React.lazy(() => import('./components/ProjectsCarousel').then((m) => ({ default: m.ProjectsCarousel })));
+const CertificationsSection = React.lazy(() => import('./components/CertificationsSection').then((m) => ({ default: m.CertificationsSection })));
+const ReviewsSection = React.lazy(() => import('./components/ReviewsSection').then((m) => ({ default: m.ReviewsSection })));
+const FaqSection = React.lazy(() => import('./components/FaqSection').then((m) => ({ default: m.FaqSection })));
+const ContactSection = React.lazy(() => import('./components/ContactSection').then((m) => ({ default: m.ContactSection })));
+const Footer = React.lazy(() => import('./components/Footer').then((m) => ({ default: m.Footer })));
+const RedDeIncendioPage = React.lazy(() => import('./components/RedDeIncendioPage').then((m) => ({ default: m.RedDeIncendioPage })));
+const ServicePage = React.lazy(() => import('./components/ServicePage').then((m) => ({ default: m.ServicePage })));
 
 const HOME_SEO = {
   title: 'Airsens | Ingeniería HVAC, Climatización y Refrigeración Industrial en Chile',
@@ -47,11 +48,13 @@ export default function App() {
   if (servicePage) {
     return (
       <div className="min-h-screen bg-[#0B0D10] text-[#F5F6F7] selection:bg-[#2E7DFF] selection:text-white flex flex-col font-sans">
+        <Suspense fallback={<div className="min-h-screen" />}>
         {servicePage.id === 'red-de-incendio' ? (
           <RedDeIncendioPage onNavigateHome={goHome} />
         ) : (
           <ServicePage key={servicePage.id} serviceId={servicePage.id} onNavigateHome={goHome} />
         )}
+        </Suspense>
         <FloatingActions />
       </div>
     );
@@ -69,6 +72,7 @@ export default function App() {
         {/* 4.1 Hero Section (Pantalla Completa) */}
         <HeroSection />
 
+        <Suspense fallback={<div className="min-h-[200vh]" />}>
         {/* 4.2 Quiénes Somos (Compromiso Operativo 24/7) */}
         <AboutSection />
 
@@ -89,10 +93,13 @@ export default function App() {
 
         {/* 4.8 Contacto / Cierre (Formulario WhatsApp + Mapa Lazy) */}
         <ContactSection />
+        </Suspense>
       </main>
 
       {/* 4.9 Footer */}
-      <Footer onSelectService={handleSelectService} />
+      <Suspense fallback={null}>
+        <Footer onSelectService={handleSelectService} />
+      </Suspense>
 
       {/* Fixed Conversion Actions (WhatsApp Floating Desktop + Mobile Bottom Bar) */}
       <FloatingActions />
