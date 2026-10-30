@@ -1,0 +1,4 @@
+Contact: mailto:clientes@airsens.cl
+Expires: 2027-10-30T00:00:00.000Z
+Preferred-Languages: es, en
+Canonical: https://www.airsens.cl/.well-known/security.txt
